@@ -19,24 +19,15 @@ export function createEventEmitter(): API {
   /**
    * Emit an event handler for a subscription type.
    */
-  function emit(type: string, data: any): Promise<any> | undefined {
+  function emit(type: string, data: any): void {
     let listener: Listener;
-    let asyncResponses = [];
 
     for (listener of listeners) {
       if (listener.type !== type && listener.type !== 'all') {
         continue;
       }
 
-      const response = listener.handler(data);
-
-      if (response?.then) {
-        asyncResponses.push(response);
-      }
-    }
-
-    if (asyncResponses.length) {
-      return Promise.all(asyncResponses);
+      listener.handler(data);
     }
   }
 

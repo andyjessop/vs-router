@@ -15,7 +15,6 @@ export function createRouter(
 ): Router.API {
   const trimmedBase = trimSlashes(base);
   const routes: Router.Routes = {};
-  let transitioning = false;
 
   // Register the initial routes, including the "root" route.
   [
@@ -28,7 +27,8 @@ export function createRouter(
 
   const { params, route: { name } } = currentRoute;
 
-  window.history.replaceState({ name, params }, '', window.location.href);
+  push(name, params);
+
   window.addEventListener('popstate', handleURLChange);
 
   return {
@@ -50,14 +50,6 @@ export function createRouter(
     window.removeEventListener('popstate', handleURLChange);
   }
 
-  function createHandlers(): Router.EventHandlers  {
-    return {
-      change: [],
-      enter: [],
-      exit: [],
-    }
-  }
-
   /**
    * Create a new route object on a given path.
    */
@@ -65,7 +57,6 @@ export function createRouter(
     return {
       decodeURL: parse(path),
       encodeURL: reverse(path),
-      handlers: createHandlers(),
       name,
     };
   }
@@ -98,17 +89,15 @@ export function createRouter(
     };
   }
 
-  function handleURLChange(event: PopStateEvent) {
-    if (event.state === null) {
-      return;
-    }
+  function handleURLChange() {
+    const lastRoute = currentRoute;
+    currentRoute = getMatchingRoute(window.location.href);
 
-    const { name, params } = event.state;
-
-    const route = routes[name];
-
-    route.handlers.enter
-      .forEach(handler => handler({ data: { last: currentRoute, route, params }, type: Router.Events.Enter }));
+    emitter.emit(Router.Events.Transition, buildEvent({
+      last: lastRoute,
+      next: currentRoute,
+      type: Router.Events.Transition
+    }));
   }
 
   /**
@@ -122,20 +111,20 @@ export function createRouter(
    * Go backwards.
    */
   function back() {
-    window.history.back();
+    window.history.go(-1);
   }
 
   /**
    * Go forwards.
    */
   function forward() {
-    window.history.forward();
+    window.history.go(1);
   }
 
   /**
    * Push a new route into the history.
    */
-  function push(name: string, params: Router.RouteParams): void {
+  function push(name: string, params: Router.RouteParams = {}): void {
     const route = routes[name];
 
     if (!route) {
@@ -161,7 +150,7 @@ export function createRouter(
   /**
    * Replace the current location history.
    */
-  function replace(name: string, params: Router.RouteParams): void {
+  function replace(name: string, params: Router.RouteParams = {}): void {
     const route = routes[name];
 
     if (!route) {
@@ -187,42 +176,16 @@ export function createRouter(
     const lastRoute = currentRoute;
     currentRoute = { params, route };
 
-    if (lastRoute) {
-      const waitForAsyncHandlers = emitter.emit(Router.Events.Exit, buildEvent({
-        last: lastRoute,
-        next: currentRoute,
-        type: Router.Events.Exit,
-      }));
-
-      if (waitForAsyncHandlers) {
-        return waitForAsyncHandlers.then(() => {
-          if (replace) {
-            window.history.replaceState(null, '', fullURL);
-          } else {
-            window.history.pushState(null, '', fullURL);
-          }
-
-          transitioning = false;
-
-          emitter.emit(Router.Events.Enter, buildEvent({
-            last: lastRoute,
-            next: currentRoute,
-            type: Router.Events.Enter
-          }));
-        });
-      }
-    }
-
     if (replace) {
       window.history.replaceState({ name: route.name, params }, '', fullURL);
     } else {
       window.history.pushState({ name: route.name, params }, '', fullURL);
     }
 
-    emitter.emit(Router.Events.Enter, buildEvent({
+    emitter.emit(Router.Events.Transition, buildEvent({
       last: lastRoute,
       next: currentRoute,
-      type: Router.Events.Enter
+      type: Router.Events.Transition
     }));
   }
 }

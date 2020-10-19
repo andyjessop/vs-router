@@ -1,10 +1,10 @@
 import { parseSegment } from './parse-segment';
-import { RouteParams } from './config/types';
+import type { Router } from '../router/types';
 
 export function parsePaths(targets : string[]) {
   const parsers = targets.map(parseSegment);
 
-  return function curriedParsePaths(path : string[], params : RouteParams) {
+  return function curriedParsePaths(path : string[], params : Router.RouteParams) {
     if (targets.length !== path.length) {
       return false;
     }

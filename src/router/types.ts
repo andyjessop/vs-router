@@ -8,9 +8,9 @@ export namespace Router {
     forward(): void;
     getCurrentRoute(): Router.RouteData | null;
     go(num: number): void;
-    push(name: string, params: RouteParams): void;
+    push(name: string, params?: RouteParams): void;
     register(name: string, path: string): true | null;
-    replace(name: string, params: RouteParams): void;
+    replace(name: string, params?: RouteParams): void;
   }
 
   export interface CurrentRoute {
@@ -18,21 +18,13 @@ export namespace Router {
     route: Route;
   }
 
-  export interface EventHandlers {
-    change: Handler[];
-    enter: Handler[];
-    exit: Handler[];
-  }
-
   export enum Events {
-    Enter = 'Enter',
-    Exit = 'Exit',
+    Transition = 'Transition',
   }
 
   export interface Route {
     decodeURL(url: string): null | RouteParams;
     encodeURL(dict: RouteParams): string;
-    handlers: EventHandlers;
     name: string;
   }
 

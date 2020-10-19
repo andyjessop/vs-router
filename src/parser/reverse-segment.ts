@@ -1,9 +1,9 @@
 import { isList } from './is-list';
 import { isOptional } from './is-optional';
 import { namedParamRegex } from './config/constants';
-import { RouteParams } from './config/types';
+import type { Router } from '../router/types';
 
-export function reverseSegment(str: string, dict: RouteParams): string {
+export function reverseSegment(str: string, dict: Router.RouteParams): string {
   // eslint-disable-next-line no-undef
   const match = str.match(namedParamRegex) || [];
 

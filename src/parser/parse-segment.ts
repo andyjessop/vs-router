@@ -1,4 +1,4 @@
-import { RouteParams } from './config/types';
+import type { Router } from '../router/types';
 
 export function parseSegment(seg: string) {
   if (seg[0] === ':') {
@@ -22,7 +22,7 @@ export function parseSegment(seg: string) {
 
     return function curriedParseSegment(
       str: string,
-      paths: RouteParams,
+      paths: Router.RouteParams,
       array = false
     ): boolean {
       if (array) {

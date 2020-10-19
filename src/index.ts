@@ -1,100 +1,72 @@
-// import { createRouter } from './router/create-router';
 import { Router } from './router/types';
-import { parse } from './parser';
 import { createRouter } from './router/create-router';
+import { html, render } from 'lit-html';
 
-const app = document.getElementById('app');
+const appEl = document.getElementById('app');
+
+if (!appEl) {
+  throw Error('app not found.');
+}
 
 const router = createRouter('', {
-  posts: '/posts?page?=:page',
-  post: '/posts/:id'
+  users: '/users?page?=:page',
+  user: '/users/:id'
 });
 
-(<any>window).router = router;
+router.on(Router.Events.Transition, () => {
+  render(app(), <HTMLElement>document.getElementById('app'));
+});
 
-router.on(Router.Events.Exit, exiting);
-router.on(Router.Events.Enter, entering);
+render(app(), <HTMLElement>document.getElementById('app'))
 
-function exiting(data: any): Promise<void>{
-  console.log('exiting start', Date.now(), data);
-
-  return new Promise(resolve => {
-    setTimeout(() => {
-      console.log('exiting end', Date.now(), data);
-      resolve();
-    }, 2000);
-  });
+function app() {
+  return html`
+    <div>
+      <input id="route-name" type="text" placeholder="name">
+      <input id="params" type="text" placeholder="params">
+      <button id="push" @click=${push}>Push</button>
+      <button id="replace" @click=${replace}>Replace</button>
+      <button id="back" @click=${back}>Back</button>
+      <button id="forward" @click=${forward}>Forward</button>
+    </div>
+    <div>
+      <input id="register-name" type="text" placeholder="name">
+      <input id="path" type="text" placeholder="path">
+      <button id="register" @click=${register}>Register</button>
+    </div>
+    <p id="pathname" class="pathname">${getPathName()}</p>
+  `;
 }
 
-function entering(data: any) {
-  console.log('entering', data);
+function back() {
+  router.back();
 }
-// const router = createRouter('', {
-//   posts: 'posts',
-// });
-// const curriedParse = parse('/posts/:id?page?=:page#:hash');
-//
-// console.log(location);
-// console.log(curriedParse(`${location.origin}/posts/3#test`));
-//
-// function handleURLChange(data: any) {
-//   debugger;
-//   console.log(data);
-// }
-//
-// window.addEventListener('popstate', handleURLChange);
-// router.get('posts').on(Router.Events.PATH_CHANGED, showPosts);
 
-// function showPosts() {
-//   if (!app) {
-//     return;
-//   }
-//
-//   app.innerHTML = 'posts';
-// }
+function forward() {
+  router.forward();
+}
 
-/*
+function getPathName() {
+  return window.location.href.substr(window.location.origin.length);
+}
 
-const router = createRouter();
+function push() {
+  const name = (<HTMLInputElement>document.getElementById('route-name')).value;
+  const params = (<HTMLInputElement>document.getElementById('params')).value;
 
-router.register('posts', '/posts?page?=:page');
-router.register('post', '/posts?:id');
+  router.push(name, params.length ? JSON.parse(params) : undefined);
+}
 
-// routes = {
-//   posts: { decodeURL: curriedParse, encodeURL: curriedReverse, listeners: { change: Listener[], enter: Listener[], exit: Listener[], },
-// }
+function register() {
+  const name = (<HTMLInputElement>document.getElementById('register-name')).value;
+  const path = (<HTMLInputElement>document.getElementById('path')).value;
 
-// currentRoute = {
-//   name: 'posts',
-//   params: {
-//     id: 2,
-//     page: 2,
-//     hash: undefined,
-//   },
-// }
+  router.register(name, path);
+}
 
-router.onEnter('posts', postsHandler); // calls handler synchronously if current route matches
-router.onExit('posts', next => removePostsWithFade(next)); // allows async transition for cleanup work
-router.onChange('posts', changes => handleDifferentPostsPage(changes));
-router.onEnter('*', allRoutesHandler);
-router.onEnter(['posts', 'users'], someRoutesHandler);
-router.on(Enter, ({ last, next }) => handleRouteChange);
+function replace() {
+  const name = (<HTMLInputElement>document.getElementById('name')).value;
+  const params = (<HTMLInputElement>document.getElementById('params')).value;
 
-router.push('posts', { page: 3 }, { state, title });
-
-// 'posts' is same, so `page` is merged-in, i.e.
-// if currentRoute.name === name
-//   url = routes.posts.encodeURL(Object.assign(currentRoute.params));
-//   changes = { page: 3 }
-//   window.history.pushState(state, title, `${baseURL}${url}`);
-//   route.posts.listeners.change.forEach(listener => listener(changes))
-
-router.navigate('posts', { id: 3, page: 2, hash: 'test' });
-router.back();
-router.forward();
-
-// The following hve no information associated with them, so we need to push the currentRoute to state
-//  window.history.forward();
-//  window.history.backward();
-//  window.history.go();
- */
+  router.replace(name, params.length ? JSON.parse(params) : undefined);
+}

@@ -1,6 +1,6 @@
 export namespace EventEmitter {
   export interface API {
-    emit: (type: string, data: any) => Promise<any> | undefined
+    emit: (type: string, data?: any) => void;
     off: (type: string, handler: Handler) => void;
     offAll: (handler: Handler) => void;
     offMany: (listeners: Listener[]) => void;

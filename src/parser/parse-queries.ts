@@ -2,7 +2,7 @@ import { isList } from './is-list';
 import { isOptional } from './is-optional';
 import { paramName } from './param-name';
 import { parseSegment } from './parse-segment';
-import { RouteParams } from './config/types';
+import type { Router } from '../router/types';
 
 export function parseQueries(target: URLSearchParams) {
   const keys = Array.from(target.keys());
@@ -10,8 +10,8 @@ export function parseQueries(target: URLSearchParams) {
   const parsers = keys.map(key => parseSegment(target.get(key)!));
 
   return function curriedParseQueries(
-    query : URLSearchParams,
-    params : RouteParams
+    query: URLSearchParams,
+    params: Router.RouteParams
   ) : boolean {
     const queryKeys = Array.from(query.keys());
 

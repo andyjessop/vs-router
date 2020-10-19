@@ -4,7 +4,7 @@ import { parsePaths } from './parse-paths';
 import { parseQueries } from './parse-queries';
 import { parseSegment } from './parse-segment';
 import { pathToURL } from './path-to-url';
-import type { RouteParams } from './config/types';
+import type { Router } from '../router/types';
 import { splitPath } from './split-path';
 import { trimSlashes } from './trim-slashes';
 
@@ -25,10 +25,10 @@ export function parse(pattern : string) {
 
   const ph = parseSegment(targetHash);
 
-  return function curriedParse(urlString : string): null | RouteParams {
+  return function curriedParse(urlString : string): null | Router.RouteParams {
     const route = new URL(urlString);
 
-    const params : RouteParams = {};
+    const params: Router.RouteParams = {};
 
     if (
       pp(splitPath(trimSlashes(route.pathname)), params) &&
