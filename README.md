@@ -7,10 +7,17 @@
  - framework-agnostic
  - really very simple
 
+## Installation
+```
+npm install --save @andyjessop/very-simple-router
+
+// or for yarn:
+yarn add @andyjessop/very-simple-router
+```
 ## Usage
 
 ```js
-import { createRouter } from 'very-simple-router';
+import { createRouter } from '@andyjessop/very-simple-router';
 
 const router = createRouter('/', {
   users: '/users',
