@@ -19,7 +19,7 @@ export namespace Router {
   }
 
   export enum Events {
-    Transition = 'Transition',
+    Transition = 'transition',
   }
 
   export interface Route {

@@ -24,7 +24,7 @@ const router = createRouter('/', {
   user: '/users/:id'
 });
 
-router.on('enter', ({ last, next }) => {
+router.on('transition', ({ last, next }) => {
   console.log(`Last: ${JSON.stringify(last)}`);
   console.log(`Next: ${JSON.stringify(next)}`);
 });
