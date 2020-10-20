@@ -1,14 +1,17 @@
-`rute` is:
+`very-simple-router` is:
  - a client-side router library
  - very small (<2kB gzipped)
  - very fast
  - synchronous
  - event-based
  - framework-agnostic
+ - really very simple
 
 ## Usage
 
 ```js
+import { createRouter } from 'very-simple-router';
+
 const router = createRouter('/', {
   users: '/users',
   user: '/users/:id'
@@ -19,7 +22,7 @@ router.on('enter', ({ last, next }) => {
   console.log(`Next: ${JSON.stringify(next)}`);
 });
 
-// rute follows the history API with its push/replace/back/forward/go terminology
+// very-simple-router follows the history API with its push/replace/back/forward/go terminology
 
 // go to the users route
 router.push('users');
@@ -51,7 +54,7 @@ router.push('root');
 
 ### The `notFound` route
 
-A `notFound` path is added automatically and defaults to `/404`. In order to override it, register a new root with the `notFound` name:
+A `notFound` route is added automatically and defaults to `/404`. In order to override it, register a new root with the `notFound` name:
 
 ```js
 const router = createRouter('/', {

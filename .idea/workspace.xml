@@ -11,29 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74894fea-f392-4ee4-85cd-98a96f5cc81a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/parser/index.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/event-emitter/create-event-emitter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/event-emitter/create-event-emitter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/event-emitter/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/event-emitter/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/escape-regexes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/escape-regexes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/get-hash.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/get-hash.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/is-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/is-list.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/is-optional.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/is-optional.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/param-name.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/param-name.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/parse-paths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parse-paths.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/parse-queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parse-queries.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/parse-segment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parse-segment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/parse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/path-to-url.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/path-to-url.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/reverse-segment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/reverse-segment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/reverse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/reverse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/split-path.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/split-path.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/trim-slashes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/trim-slashes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/build-event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/build-event.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/create-router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/create-router.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +86,7 @@
       <workItem from="1603108452366" duration="21094000" />
       <workItem from="1603179324390" duration="918000" />
       <workItem from="1603181479676" duration="4488000" />
-      <workItem from="1603186498800" duration="7862000" />
+      <workItem from="1603186498800" duration="8409000" />
     </task>
     <task id="LOCAL-00001" summary="Remove unwanted files">
       <created>1603189636646</created>

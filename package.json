@@ -1,12 +1,12 @@
 {
-  "name": "rute",
+  "name": "very-simple-router",
   "description": "A small, framework-agnostic, event-based, client-side router.",
-  "homepage": "https://github.com/andyjessop/rute",
+  "homepage": "https://github.com/andyjessop/very-simple-router",
   "author": "Andy Jessop <andrewdjessop@protonmail.com>",
   "main": "dist/router.min.js",
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/andyjessop/rute.git"
+    "url" : "https://github.com/andyjessop/very-simple-router.git"
   },
   "license": "MIT",
   "version": "0.0.1",
