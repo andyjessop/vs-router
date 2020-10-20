@@ -12,7 +12,7 @@ const router = createRouter('', {
   users: '/users?page?=:page',
   user: '/users/:id',
   notFound: '/not-found',
-  posts: '/posts/:user/comments?page?=:page&id*=:ids',
+  posts: '/posts/:user/comments?page?=:page#:hash',
 });
 
 router.on(Router.Events.Transition, () => {

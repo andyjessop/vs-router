@@ -66,13 +66,12 @@ test('should register a new route', async function() {
 const suites = [
   {
     name: 'posts',
-    path: '/posts/:user/comments?page?=:page&id[]*=:ids#:section',
     tests: [
-      { description: 'should be not found if required parameter missing', params: '{"page":1,"ids":[1,2]}', expect: '/not-found' }, // required user parameter not given
-      { description: 'add parameter and list parameters', params: '{"user":"admin","page":1,"ids":[1,2]}', expect: '/posts/admin/comments?page=1&id=1&id=2' },
-      { description: 'should not add parameter if null', params: '{"user":"admin","page":null,"ids":[1,2]}', expect: '/posts/admin/comments?page=2' },
-      { description: 'should not add parameter if missing', params: '{"user":"admin","ids":[1]}', expect: '/posts/admin/comments?id=1' },
-      { description: 'should add hash', params: '{"user":"admin","section":"comments"}', expect: '/posts/admin/comments#comments' },
+      { description: 'should be not found if required parameter missing', params: '{"page":1,"hash":"comments"}', expect: '/not-found' }, // required user parameter not given
+      { description: 'add parameter and list parameters', params: '{"user":"admin","page":1,"hash":"comments"}', expect: '/posts/admin/comments?page=1#comments' },
+      { description: 'should not add parameter if null', params: '{"user":"admin","page":null,"hash":"comments"}', expect: '/posts/admin/comments#comments' },
+      { description: 'should not add parameter if missing', params: '{"user":"admin","hash":"comments"}', expect: '/posts/admin/comments#comments' },
+      { description: 'should add hash', params: '{"user":"admin","hash":"comments"}', expect: '/posts/admin/comments#comments' },
     ],
   }
 ];
