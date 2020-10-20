@@ -11,20 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74894fea-f392-4ee4-85cd-98a96f5cc81a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/router/build-event.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/router/get-route-data.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/router/params-to-strings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/config/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/config/types.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/escape-regexes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/escape-regexes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/parse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parse.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/reverse-segment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/reverse-segment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/reverse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/reverse.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/create-router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/create-router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/params-to-strings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/params-to-strings.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/integration.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/integration.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +87,8 @@
       <workItem from="1603100044053" duration="4593000" />
       <workItem from="1603106959227" duration="1341000" />
       <workItem from="1603108452366" duration="21094000" />
-      <workItem from="1603179324390" duration="811000" />
+      <workItem from="1603179324390" duration="918000" />
+      <workItem from="1603181479676" duration="4403000" />
     </task>
     <servers />
   </component>
@@ -119,10 +112,11 @@
       <screen x="1536" y="99" width="2560" height="1417" />
     </state>
     <state x="1936" y="446" key="SettingsEditor/1536.99.2560.1417/0.23.1536.937@1536.99.2560.1417" timestamp="1603117178538" />
-    <state x="449" y="210" width="637" height="562" key="find.popup" timestamp="1603021298904">
-      <screen x="0" y="23" width="1536" height="937" />
+    <state x="2284" y="382" width="1062" height="850" key="find.popup" timestamp="1603183178964">
+      <screen x="1536" y="99" width="2560" height="1417" />
     </state>
     <state x="449" y="210" width="637" height="562" key="find.popup/0.23.1536.937@0.23.1536.937" timestamp="1603021298904" />
+    <state x="2284" y="382" width="1062" height="850" key="find.popup/1536.99.2560.1417/0.23.1536.937@1536.99.2560.1417" timestamp="1603183178964" />
     <state x="2069" y="424" width="670" height="676" key="search.everywhere.popup" timestamp="1603098460797">
       <screen x="1536" y="99" width="2560" height="1417" />
     </state>

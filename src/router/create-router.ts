@@ -164,10 +164,17 @@ export function createRouter(
   }
 
   function transition(route: Router.Route, params: Router.RouteParams = {}, replace = false): void {
-    const url = route.encodeURL(paramsToStrings(params));
+    let url;
+
+    try {
+      // This is wrapped in a try/catch because encodeURL will throw if required prameters are not provided.
+      url = route.encodeURL(paramsToStrings(params));
+    } catch (e) {
+      return transition(routes.notFound);
+    }
 
     if (!url) {
-      return transition(routes['404']);
+      return transition(routes.notFound);
     }
 
     const fullURL = `${window.location.origin}${url}`;
