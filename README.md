@@ -114,3 +114,7 @@ Path:    /posts?id=1&id=2
 ```
 
 Regex can also be used for the patern, so for advanced usage, see [the tests](src/parser/index.test.ts).
+
+## Credit
+
+The parser is a fork of the excellent [`teki` URL parsing library by Philip Nilsson](https://github.com/philipnilsson/teki). It's the beating heart of `very-simple-router` and is essentially what allows it to stay small and very, very fast.
