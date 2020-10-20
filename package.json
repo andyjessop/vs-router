@@ -1,4 +1,15 @@
 {
+  "name": "rute",
+  "description": "A small, framework-agnostic, event-based, client-side router.",
+  "homepage": "https://github.com/andyjessop/rute",
+  "author": "Andy Jessop <andrewdjessop@protonmail.com>",
+  "main": "dist/router.min.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/andyjessop/rute.git"
+  },
+  "license": "MIT",
+  "version": "0.0.1",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",

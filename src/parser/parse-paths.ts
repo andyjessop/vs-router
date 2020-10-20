@@ -1,6 +1,9 @@
 import { parseSegment } from './parse-segment';
 import type { Router } from '../router/types';
 
+/**
+ * Parse a path, returning a curried function.
+ */
 export function parsePaths(targets : string[]) {
   const parsers = targets.map(parseSegment);
 

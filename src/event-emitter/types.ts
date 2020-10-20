@@ -2,11 +2,7 @@ export namespace EventEmitter {
   export interface API {
     emit: (type: string, data?: any) => void;
     off: (type: string, handler: Handler) => void;
-    offAll: (handler: Handler) => void;
-    offMany: (listeners: Listener[]) => void;
     on: (type: string, handler: Handler) => void;
-    onAll: (handler: Handler) => void;
-    onMany: (types: string[], handler: Handler) => void;
   }
 
   export interface Event {
@@ -20,9 +16,4 @@ export namespace EventEmitter {
   }
 
   export type Handler = (event: Event) => any;
-
-  export interface Subscriptions {
-    all: Listener[];
-    [key: string]: Listener[];
-  }
 }

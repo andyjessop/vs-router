@@ -3,6 +3,9 @@ import { isOptional } from './is-optional';
 import { namedParamRegex } from './constants';
 import type { Router } from '../router/types';
 
+/**
+ * Reverse-parse a segment.
+ */
 export function reverseSegment(str: string, dict: Router.RouteParams): string {
   // eslint-disable-next-line no-undef
   const match = str.match(namedParamRegex) || [];

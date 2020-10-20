@@ -8,6 +8,9 @@ import type { Router } from '../router/types';
 import { splitPath } from './split-path';
 import { trimSlashes } from './trim-slashes';
 
+/**
+ * Parse a pattern, returning a decodeURL function.
+ */
 export function parse(pattern : string) {
   if (pattern[0] !== '/') {
     throw new Error('Must start with /');

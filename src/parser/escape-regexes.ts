@@ -1,5 +1,8 @@
 import { namedParamRegex } from './constants';
 
+/**
+ * Escape named params from a pattern.
+ */
 export function escapeRegexes(pattern: string): string {
   const match = pattern.match(namedParamRegex) || [];
 

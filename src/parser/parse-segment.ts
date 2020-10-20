@@ -1,5 +1,8 @@
 import type { Router } from '../router/types';
 
+/**
+ * Parse a segment, returning a decodeURL function.
+ */
 export function parseSegment(seg: string) {
   if (seg[0] === ':') {
     let regex: null | RegExp = null;

@@ -28,11 +28,9 @@ export function createRouter(
 
   let currentRoute: Router.CurrentRoute | null = getMatchingRoute(window.location.href);
 
-  const { params, route: { name } } = currentRoute;
+  push(currentRoute.route.name, currentRoute.params);
 
-  push(name, params);
-
-  window.addEventListener('popstate', handleURLChange);
+  window.addEventListener('popstate', refreshCurrentRoute);
 
   return {
     back,
@@ -50,7 +48,7 @@ export function createRouter(
    * Destroy the router.
    */
   function destroy() {
-    window.removeEventListener('popstate', handleURLChange);
+    window.removeEventListener('popstate', refreshCurrentRoute);
   }
 
   /**
@@ -64,10 +62,16 @@ export function createRouter(
     };
   }
 
+  /**
+   * Get the current route.
+   */
   function getCurrentRoute(): Router.RouteData | null {
     return getRouteData(currentRoute);
   }
 
+  /**
+   * Get a route object matching a URL.
+   */
   function getMatchingRoute(url: string): Router.CurrentRoute {
     let params: any | null = null;
 
@@ -92,7 +96,10 @@ export function createRouter(
     };
   }
 
-  function handleURLChange() {
+  /**
+   * Refresh the current route.
+   */
+  function refreshCurrentRoute() {
     const lastRoute = currentRoute;
     currentRoute = getMatchingRoute(window.location.href);
 
@@ -163,11 +170,14 @@ export function createRouter(
     transition(route, params, true);
   }
 
+  /**
+   * Transition to a new route.
+   */
   function transition(route: Router.Route, params: Router.RouteParams = {}, replace = false): void {
     let url;
 
     try {
-      // This is wrapped in a try/catch because encodeURL will throw if required prameters are not provided.
+      // This is wrapped in a try/catch because encodeURL will throw if required parameters are not provided.
       url = route.encodeURL(paramsToStrings(params));
     } catch (e) {
       return transition(routes.notFound);

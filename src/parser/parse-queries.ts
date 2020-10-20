@@ -4,6 +4,9 @@ import { paramName } from './param-name';
 import { parseSegment } from './parse-segment';
 import type { Router } from '../router/types';
 
+/**
+ * Parse a query, returning a decodeURL function.
+ */
 export function parseQueries(target: URLSearchParams) {
   const keys = Array.from(target.keys());
 

@@ -1,6 +1,9 @@
 import type { Router } from './types';
 import { getRouteData } from './get-route-data';
 
+/**
+ * Build an event object.
+ */
 export function buildEvent({
   last,
   next,

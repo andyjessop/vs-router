@@ -8,6 +8,9 @@ import type { Router } from '../router/types';
 import { splitPath } from './split-path';
 import { trimSlashes } from './trim-slashes';
 
+/**
+ * Reverse a pattern, returning an encodeURL function.
+ */
 export function reverse(pattern: string) {
   const escapedString = escapeRegexes(trimSlashes(pattern));
 

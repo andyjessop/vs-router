@@ -11,14 +11,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74894fea-f392-4ee4-85cd-98a96f5cc81a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/rute.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/parser/index.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/event-emitter/create-event-emitter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/event-emitter/create-event-emitter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/event-emitter/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/event-emitter/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/escape-regexes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/escape-regexes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/get-hash.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/get-hash.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/is-list.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/is-list.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/is-optional.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/is-optional.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/param-name.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/param-name.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/parse-paths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parse-paths.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/parse-queries.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parse-queries.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/parse-segment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parse-segment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/parse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/parse.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/path-to-url.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/path-to-url.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/reverse-segment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/reverse-segment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/reverse.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/reverse.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/split-path.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/split-path.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/trim-slashes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/trim-slashes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/build-event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/build-event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router/create-router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/create-router.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -91,8 +106,16 @@
       <workItem from="1603108452366" duration="21094000" />
       <workItem from="1603179324390" duration="918000" />
       <workItem from="1603181479676" duration="4488000" />
-      <workItem from="1603186498800" duration="3057000" />
+      <workItem from="1603186498800" duration="7862000" />
     </task>
+    <task id="LOCAL-00001" summary="Remove unwanted files">
+      <created>1603189636646</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603189636646</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +133,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Remove unwanted files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove unwanted files" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="1936" y="446" key="SettingsEditor" timestamp="1603117178538">
       <screen x="1536" y="99" width="2560" height="1417" />
@@ -120,9 +147,9 @@
     </state>
     <state x="449" y="210" width="637" height="562" key="find.popup/0.23.1536.937@0.23.1536.937" timestamp="1603021298904" />
     <state x="2284" y="382" width="1062" height="850" key="find.popup/1536.99.2560.1417/0.23.1536.937@1536.99.2560.1417" timestamp="1603183178964" />
-    <state x="2069" y="424" width="670" height="676" key="search.everywhere.popup" timestamp="1603098460797">
+    <state x="2069" y="424" width="670" height="676" key="search.everywhere.popup" timestamp="1603194701687">
       <screen x="1536" y="99" width="2560" height="1417" />
     </state>
-    <state x="2069" y="424" width="670" height="676" key="search.everywhere.popup/1536.99.2560.1417/0.23.1536.937@1536.99.2560.1417" timestamp="1603098460797" />
+    <state x="2069" y="424" width="670" height="676" key="search.everywhere.popup/1536.99.2560.1417/0.23.1536.937@1536.99.2560.1417" timestamp="1603194701687" />
   </component>
 </project>
