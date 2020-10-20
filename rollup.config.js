@@ -5,7 +5,7 @@ import { terser } from "rollup-plugin-terser";
 export default {
   input: 'src/router/create-router.ts',
   output: {
-    file: 'dist/router.js',
+    file: 'dist/router.min.js',
     format: 'esm'
   },
   plugins: [
