@@ -1,4 +1,4 @@
-import { namedParamRegex } from './config/constants';
+import { namedParamRegex } from './constants';
 
 export function escapeRegexes(pattern: string): string {
   const match = pattern.match(namedParamRegex) || [];

@@ -3,6 +3,9 @@ import { Router } from './types';
 import { createEventEmitter } from '../event-emitter/create-event-emitter';
 import { parse, reverse } from '../parser';
 import { trimSlashes } from '../parser/trim-slashes';
+import { getRouteData } from './get-route-data';
+import { buildEvent } from './build-event';
+import { paramsToStrings } from './params-to-strings';
 
 
 /**
@@ -128,7 +131,7 @@ export function createRouter(
     const route = routes[name];
 
     if (!route) {
-      return;
+      return transition(routes['404']);
     }
 
     transition(route, params);
@@ -154,17 +157,17 @@ export function createRouter(
     const route = routes[name];
 
     if (!route) {
-      return;
+      return transition(routes['404']);
     }
 
     transition(route, params, true);
   }
 
-  function transition(route: Router.Route, params: Router.RouteParams, replace = false) {
-    const url = route.encodeURL(params);
+  function transition(route: Router.Route, params: Router.RouteParams = {}, replace = false): void {
+    const url = route.encodeURL(paramsToStrings(params));
 
     if (!url) {
-      return;
+      return transition(routes['404']);
     }
 
     const fullURL = `${window.location.origin}${url}`;
@@ -188,28 +191,4 @@ export function createRouter(
       type: Router.Events.Transition
     }));
   }
-}
-
-function buildEvent({
-  last,
-  next,
-  type,
-}: {
-  last: Router.CurrentRoute | null | undefined,
-  next: Router.CurrentRoute | null | undefined,
-  type: Router.Events,
-}) {
-  return {
-    last: getRouteData(last),
-    next: getRouteData(next),
-    type,
-  }
-}
-
-function getRouteData(route: Router.CurrentRoute | null | undefined): Router.RouteData | null {
-  if (!route) {
-    return null;
-  }
-
-  return { name: route.route.name, params: route.params }
 }

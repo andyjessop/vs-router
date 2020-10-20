@@ -1,6 +1,6 @@
 import { isList } from './is-list';
 import { isOptional } from './is-optional';
-import { namedParamRegex } from './config/constants';
+import { namedParamRegex } from './constants';
 import type { Router } from '../router/types';
 
 export function reverseSegment(str: string, dict: Router.RouteParams): string {

@@ -10,7 +10,8 @@ if (!appEl) {
 
 const router = createRouter('', {
   users: '/users?page?=:page',
-  user: '/users/:id'
+  user: '/users/:id',
+  notFound: '/not-found',
 });
 
 router.on(Router.Events.Transition, () => {

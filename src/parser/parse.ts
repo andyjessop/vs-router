@@ -25,7 +25,7 @@ export function parse(pattern : string) {
 
   const ph = parseSegment(targetHash);
 
-  return function curriedParse(urlString : string): null | Router.RouteParams {
+  return function decodeURL(urlString : string): null | Router.RouteParams {
     const route = new URL(urlString);
 
     const params: Router.RouteParams = {};

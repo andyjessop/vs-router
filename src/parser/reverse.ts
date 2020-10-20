@@ -15,7 +15,7 @@ export function reverse(pattern: string) {
 
   const segments = splitPath(target.pathname);
 
-  return function curriedReverse(dict: Router.RouteParams): string {
+  return function encodeURL(dict: Router.RouteParams): string {
     const result = pathToURL('');
 
     result.pathname = segments
