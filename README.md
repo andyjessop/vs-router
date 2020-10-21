@@ -1,4 +1,4 @@
-The **V**ery **S**imple **Router** (`@vs-router`) is:
+The **V**ery **S**imple **Router** (`vs-router`) is:
  - a router library for the browser
  - very small (<2kB gzipped)
  - very fast
@@ -9,15 +9,15 @@ The **V**ery **S**imple **Router** (`@vs-router`) is:
 
 ## Installation
 ```
-npm install --save @vs/router
+npm install --save vs-router
 
 // or for yarn:
-yarn add @vs/router
+yarn add vs-router
 ```
 ## Usage
 
 ```js
-import { createRouter } from '@vs/router';
+import { createRouter } from 'vs-router';
 
 const router = createRouter('/', {
   users: '/users',

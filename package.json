@@ -1,12 +1,12 @@
 {
-  "name": "@vs/router",
+  "name": "vs-router",
   "description": "A small, framework-agnostic, event-based, client-side router.",
-  "homepage": "https://github.com/andyjessop/very-simple-router",
+  "homepage": "https://github.com/andyjessop/vs-router",
   "author": "Andy Jessop <andrewdjessop@protonmail.com>",
   "main": "dist/router.min.js",
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/andyjessop/very-simple-router.git"
+    "url" : "https://github.com/andyjessop/vs-router.git"
   },
   "license": "MIT",
   "version": "0.0.1",

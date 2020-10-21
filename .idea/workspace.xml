@@ -11,6 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74894fea-f392-4ee4-85cd-98a96f5cc81a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +89,8 @@
       <workItem from="1603186498800" duration="8964000" />
       <workItem from="1603198668356" duration="752000" />
       <workItem from="1603281053033" duration="134000" />
-      <workItem from="1603281343809" duration="756000" />
+      <workItem from="1603281343809" duration="1202000" />
+      <workItem from="1603283055321" duration="182000" />
     </task>
     <task id="LOCAL-00001" summary="Remove unwanted files">
       <created>1603189636646</created>
