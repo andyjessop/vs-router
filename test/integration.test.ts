@@ -21,7 +21,7 @@ beforeEach(async function() {
 test('should navigate to users route', async function() {
   await page.fill('#route-name', 'users');
 
-  await page.click('#push');
+  await page.click('#navigate');
 
   expect(await page.textContent('#pathname')).toEqual('/users');
 });
@@ -30,7 +30,7 @@ test('should navigate to user route', async function() {
   await page.fill('#route-name', 'user');
   await page.fill('#params', '{"id":"1"}');
 
-  await page.click('#push');
+  await page.click('#navigate');
 
   expect(await page.textContent('#pathname')).toEqual('/users/1');
 });
@@ -38,7 +38,7 @@ test('should navigate to user route', async function() {
 test('should go back', async function() {
   await page.fill('#route-name', 'users');
 
-  await page.click('#push');
+  await page.click('#navigate');
   await page.click('#back');
 
   expect(await page.textContent('#pathname')).toEqual('/');
@@ -58,7 +58,7 @@ test('should register a new route', async function() {
 
   await page.fill('#route-name', 'posts');
 
-  await page.click('#push');
+  await page.click('#navigate');
 
   expect(await page.textContent('#pathname')).toEqual('/posts');
 });
@@ -83,7 +83,7 @@ suites.forEach(function runSuite(suite) {
         await page.fill('#route-name', suite.name);
         await page.fill('#params', t.params);
 
-        await page.click('#push');
+        await page.click('#navigate');
 
         expect(await page.textContent('#pathname')).toEqual(t.expect);
       });

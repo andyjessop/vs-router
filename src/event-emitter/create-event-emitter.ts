@@ -10,10 +10,19 @@ export function createEventEmitter(): API {
   const listeners: Listener[] = [];
 
   return {
+    addListener,
     emit,
-    off,
-    on,
+    removeListener,
   };
+
+  /**
+   * Subscribe to an event.
+   */
+  function addListener(type: string, handler: Handler): void {
+    const listener = { handler, type };
+
+    listeners.push(listener);
+  }
 
   /**
    * Emit an event.
@@ -31,9 +40,9 @@ export function createEventEmitter(): API {
   }
 
   /**
-   * Unsubscribe a listener
+   * Remove a listener.
    */
-  function off(type: string, handler: Handler): void {
+  function removeListener(type: string, handler: Handler): void {
     const ndx = listeners.findIndex(
       (l: Listener) => type === l.type && handler === l.handler,
     );
@@ -41,14 +50,5 @@ export function createEventEmitter(): API {
     if (ndx !== -1) {
       listeners.splice(ndx, 1);
     }
-  }
-
-  /**
-   * Subscribe to an event.
-   */
-  function on(type: string, handler: Handler): void {
-    const listener = { handler, type };
-
-    listeners.push(listener);
   }
 }

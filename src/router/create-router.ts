@@ -28,7 +28,7 @@ export function createRouter(
 
   let currentRoute: Router.CurrentRoute | null = getMatchingRoute(window.location.href);
 
-  push(currentRoute.route.name, currentRoute.params);
+  navigate(currentRoute.route.name, currentRoute.params);
 
   window.addEventListener('popstate', refreshCurrentRoute);
 
@@ -39,7 +39,7 @@ export function createRouter(
     forward,
     getCurrentRoute,
     go,
-    push,
+    navigate,
     register,
     replace,
   };
@@ -134,7 +134,7 @@ export function createRouter(
   /**
    * Push a new route into the history.
    */
-  function push(name: string, params: Router.RouteParams = {}): void {
+  function navigate(name: string, params: Router.RouteParams = {}): void {
     const route = routes[name];
 
     if (!route) {

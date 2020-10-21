@@ -1,8 +1,8 @@
 export namespace EventEmitter {
   export interface API {
+    addListener: (type: string, handler: Handler) => void;
     emit: (type: string, data?: any) => void;
-    off: (type: string, handler: Handler) => void;
-    on: (type: string, handler: Handler) => void;
+    removeListener: (type: string, handler: Handler) => void;
   }
 
   export interface Event {

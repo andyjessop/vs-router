@@ -15,7 +15,7 @@ const router = createRouter('', {
   posts: '/posts/:user/comments?page?=:page#:hash',
 });
 
-router.on(Router.Events.Transition, () => {
+router.addListener(Router.Events.Transition, () => {
   render(app(), <HTMLElement>document.getElementById('app'));
 });
 
@@ -26,7 +26,7 @@ function app() {
     <div>
       <input id="route-name" type="text" placeholder="name">
       <input id="params" type="text" placeholder="params">
-      <button id="push" @click=${push}>Push</button>
+      <button id="navigate" @click=${navigate}>Navigate</button>
       <button id="replace" @click=${replace}>Replace</button>
       <button id="back" @click=${back}>Back</button>
       <button id="forward" @click=${forward}>Forward</button>
@@ -52,11 +52,11 @@ function getPathName() {
   return window.location.href.substr(window.location.origin.length);
 }
 
-function push() {
+function navigate() {
   const name = (<HTMLInputElement>document.getElementById('route-name')).value;
   const params = (<HTMLInputElement>document.getElementById('params')).value;
 
-  router.push(name, params.length ? JSON.parse(params) : undefined);
+  router.navigate(name, params.length ? JSON.parse(params) : undefined);
 }
 
 function register() {

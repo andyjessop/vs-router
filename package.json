@@ -1,5 +1,5 @@
 {
-  "name": "@andyjessop/very-simple-router",
+  "name": "@vs/router",
   "description": "A small, framework-agnostic, event-based, client-side router.",
   "homepage": "https://github.com/andyjessop/very-simple-router",
   "author": "Andy Jessop <andrewdjessop@protonmail.com>",
@@ -9,7 +9,7 @@
     "url" : "https://github.com/andyjessop/very-simple-router.git"
   },
   "license": "MIT",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",

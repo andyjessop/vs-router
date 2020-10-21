@@ -1,5 +1,5 @@
-`very-simple-router` is:
- - a client-side router library
+The **V**ery **S**imple **Router** (`@vs-router`) is:
+ - a router library for the browser
  - very small (<2kB gzipped)
  - very fast
  - synchronous
@@ -9,30 +9,31 @@
 
 ## Installation
 ```
-npm install --save @andyjessop/very-simple-router
+npm install --save @vs/router
 
 // or for yarn:
-yarn add @andyjessop/very-simple-router
+yarn add @vs/router
 ```
 ## Usage
 
 ```js
-import { createRouter } from '@andyjessop/very-simple-router';
+import { createRouter } from '@vs/router';
 
 const router = createRouter('/', {
   users: '/users',
   user: '/users/:id'
 });
 
-router.on('transition', ({ last, next }) => {
+router.addListener('transition', logTransition);
+
+function logTransition({ last, next }) {
   console.log(`Last: ${JSON.stringify(last)}`);
   console.log(`Next: ${JSON.stringify(next)}`);
-});
+}
 
-// very-simple-router follows the history API with its push/replace/back/forward/go terminology
 
 // go to the users route
-router.push('users');
+router.navigate('users');
 
 /*
 console output:
@@ -41,7 +42,7 @@ Last: { name: 'root', params: null }
 Next: { name: 'users', params: null }
 */
 
-router.push('user', { id: 1 });
+router.navigate('user', { id: 1 });
 
 /*
 console output:
@@ -49,6 +50,45 @@ console output:
 Last: { name: 'users', params: null }
 Next: { name: 'user', params: { id: 1 } }
 */
+
+router.back();
+
+/*
+console output:
+
+Last: { name: 'root', params: null }
+Next: { name: 'users', params: null }
+*/
+
+router.forward();
+
+/*
+console output:
+
+Last: { name: 'users', params: null }
+Next: { name: 'user', params: { id: 1 } }
+*/
+
+router.go(-1);
+
+/*
+console output:
+
+Last: { name: 'root', params: null }
+Next: { name: 'users', params: null }
+*/
+```
+
+### Removing listeners
+
+```ts
+router.removeListener('transition', logTransition);
+```
+
+### Destroying the router
+
+```ts
+router.destroy();
 ```
 
 ### `root` route
@@ -56,7 +96,7 @@ Next: { name: 'user', params: { id: 1 } }
 The `root` path is added automatically, according to the first parameter passed to `createRouter`. Transitioning back to the `root` therefore:
 
 ```js
-router.push('root');
+router.navigate('root');
 ```
 
 ### The `notFound` route
@@ -74,7 +114,7 @@ const router = createRouter('/', {
 New routes can be added, by passing a name and path pattern:
 ```js
 router.register('userPosts', '/posts/:userId');
-router.push('userPosts', { userId: 1 }); // works!
+router.navigate('userPosts', { userId: 1 }); // works!
 ```
 
 ### Patterns API

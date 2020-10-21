@@ -8,7 +8,7 @@ export namespace Router {
     forward(): void;
     getCurrentRoute(): Router.RouteData | null;
     go(num: number): void;
-    push(name: string, params?: RouteParams): void;
+    navigate(name: string, params?: RouteParams): void;
     register(name: string, path: string): true | null;
     replace(name: string, params?: RouteParams): void;
   }
